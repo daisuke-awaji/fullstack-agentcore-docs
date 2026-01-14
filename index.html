@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donuts Chat - ユーザーマニュアル</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 60px;
+        }
+        
+        .logo {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #000000;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #666666;
+        }
+        
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 60px 0 24px 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #000000;
+            color: #000000;
+        }
+        
+        h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 40px 0 16px 0;
+            color: #333333;
+        }
+        
+        h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: #444444;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            color: #333333;
+        }
+        
+        .screenshot {
+            width: 100%;
+            max-width: 800px;
+            margin: 24px auto;
+            display: block;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step {
+            background-color: #f9f9f9;
+            border-left: 4px solid #000000;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 600;
+            margin-right: 12px;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            font-size: 18px;
+            display: inline;
+        }
+        
+        .step-content {
+            margin-top: 12px;
+            padding-left: 44px;
+        }
+        
+        ul, ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .tip {
+            background-color: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 24px 0;
+        }
+        
+        .tip-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .tip-icon {
+            margin-right: 8px;
+        }
+        
+        .warning {
+            background-color: #fff9e6;
+            border: 1px solid #e6d9a6;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 24px 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+        
+        .feature-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 24px;
+        }
+        
+        .feature-card h4 {
+            margin-top: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+        }
+        
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 12px 16px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+        
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .toc {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 24px 32px;
+            margin: 40px 0;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 8px;
+        }
+        
+        .toc a {
+            color: #333333;
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+        
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #666666;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 16px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            h2 {
+                font-size: 22px;
+            }
+            
+            h3 {
+                font-size: 18px;
+            }
+            
+            .step {
+                padding: 16px;
+            }
+            
+            .step-content {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🍩</div>
+        <h1>Donuts Chat</h1>
+        <p class="subtitle">Amazon Bedrock AgentCore を活用した AI エージェントチャットアプリケーション</p>
+        <p class="subtitle">ユーザーマニュアル</p>
+    </header>
+
+    <nav class="toc">
+        <h3>📖 目次</h3>
+        <ul>
+            <li><a href="#overview">1. はじめに - Donuts Chat とは</a></li>
+            <li><a href="#login">2. ログイン・ログアウト</a></li>
+            <li><a href="#chat">3. チャット機能の使い方</a></li>
+            <li><a href="#agents">4. AIエージェントの選択</a></li>
+            <li><a href="#models">5. AIモデルの選択</a></li>
+            <li><a href="#search">6. 検索機能</a></li>
+            <li><a href="#tools">7. ツール検索</a></li>
+            <li><a href="#events">8. イベント連携</a></li>
+            <li><a href="#settings">9. 設定</a></li>
+            <li><a href="#faq">10. よくある質問</a></li>
+        </ul>
+    </nav>
+
+    <!-- Section 1: Overview -->
+    <section id="overview">
+        <h2>1. はじめに - Donuts Chat とは</h2>
+        
+        <p>Donuts Chat は、Amazon Bedrock AgentCore を活用した高機能な AI エージェントチャットアプリケーションです。複数の AI モデルやエージェントを選択して、様々なタスクを効率的に実行することができます。</p>
+        
+        <h3>主な機能</h3>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>🤖 マルチエージェント対応</h4>
+                <p>複数の専門エージェントを選択して、それぞれの得意分野に応じたタスクを実行できます。</p>
+            </div>
+            <div class="feature-card">
+                <h4>🧠 複数AIモデル</h4>
+                <p>Claude、Nova など複数の AI モデルから用途に応じて選択できます。</p>
+            </div>
+            <div class="feature-card">
+                <h4>🔍 高度な検索機能</h4>
+                <p>チャット履歴、エージェント、ツールを素早く検索できます。</p>
+            </div>
+            <div class="feature-card">
+                <h4>📎 画像添付</h4>
+                <p>画像を添付してAIに分析させることができます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Login -->
+    <section id="login">
+        <h2>2. ログイン・ログアウト</h2>
+        
+        <h3>ログイン方法</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">ログインページにアクセス</span>
+            <div class="step-content">
+                <p>ブラウザで Donuts Chat の URL にアクセスします。以下のようなログイン画面が表示されます。</p>
+            </div>
+        </div>
+        
+        <img src="images/01-login.png" alt="ログイン画面" class="screenshot">
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">ユーザー情報を入力</span>
+            <div class="step-content">
+                <p>以下の情報を入力してください：</p>
+                <ul>
+                    <li><strong>Username</strong>: 管理者から提供されたユーザー名</li>
+                    <li><strong>Password</strong>: 管理者から提供されたパスワード</li>
+                </ul>
+            </div>
+        </div>
+        
+        <img src="images/02-login-filled.png" alt="ログイン情報入力" class="screenshot">
+        
+        <div class="step">
+            <span class="step-number">3</span>
+            <span class="step-title">サインインボタンをクリック</span>
+            <div class="step-content">
+                <p>「Sign In」ボタンをクリックしてログインします。認証が成功すると、メインのチャット画面に遷移します。</p>
+            </div>
+        </div>
+        
+        <div class="tip">
+            <p class="tip-title">💡 ヒント：アカウントの新規作成</p>
+            <p>アカウントをお持ちでない場合は、「Sign Up」リンクをクリックして新規登録を行ってください。</p>
+        </div>
+        
+        <h3>ログアウト方法</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">ユーザーメニューを開く</span>
+            <div class="step-content">
+                <p>サイドバーの下部にあるユーザー名ボタンをクリックします。</p>
+            </div>
+        </div>
+        
+        <img src="images/11-user-menu.png" alt="ユーザーメニュー" class="screenshot">
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">Sign Out をクリック</span>
+            <div class="step-content">
+                <p>表示されたメニューから「Sign Out」をクリックするとログアウトできます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Chat -->
+    <section id="chat">
+        <h2>3. チャット機能の使い方</h2>
+        
+        <h3>メイン画面の構成</h3>
+        
+        <img src="images/03-main-dashboard.png" alt="メインダッシュボード" class="screenshot">
+        
+        <p>ログイン後のメイン画面は以下の要素で構成されています：</p>
+        
+        <table>
+            <tr>
+                <th>エリア</th>
+                <th>説明</th>
+            </tr>
+            <tr>
+                <td><strong>サイドバー（左）</strong></td>
+                <td>ナビゲーションメニューと過去のチャット履歴が表示されます</td>
+            </tr>
+            <tr>
+                <td><strong>メインエリア（中央）</strong></td>
+                <td>チャットのメッセージが表示されるエリアです</td>
+            </tr>
+            <tr>
+                <td><strong>入力エリア（下部）</strong></td>
+                <td>メッセージの入力、エージェント選択、モデル選択を行います</td>
+            </tr>
+        </table>
+        
+        <h3>新しいチャットを開始する</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">New Chat をクリック</span>
+            <div class="step-content">
+                <p>サイドバーの「New Chat」をクリックして新しいチャットを開始します。</p>
+            </div>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">メッセージを入力</span>
+            <div class="step-content">
+                <p>画面下部の入力欄（「Type your message...」）にメッセージを入力します。</p>
+            </div>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">3</span>
+            <span class="step-title">送信</span>
+            <div class="step-content">
+                <p>Enter キーを押すか、送信ボタンをクリックしてメッセージを送信します。AI からの応答がリアルタイムで表示されます。</p>
+            </div>
+        </div>
+        
+        <h3>画像を添付する</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">添付ボタンをクリック</span>
+            <div class="step-content">
+                <p>入力欄の横にある「Attach image」ボタンをクリックします。</p>
+            </div>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">画像を選択</span>
+            <div class="step-content">
+                <p>ファイル選択ダイアログから添付したい画像を選択します。</p>
+            </div>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">3</span>
+            <span class="step-title">メッセージと共に送信</span>
+            <div class="step-content">
+                <p>画像について質問や指示を入力して送信すると、AI が画像を分析して回答します。</p>
+            </div>
+        </div>
+        
+        <h3>過去のチャットを続ける</h3>
+        
+        <p>サイドバーには過去のチャット履歴が一覧表示されます。続きを話したいチャットをクリックすると、そのチャットを再開できます。</p>
+    </section>
+
+    <!-- Section 4: Agents -->
+    <section id="agents">
+        <h2>4. AIエージェントの選択</h2>
+        
+        <p>Donuts Chat では、複数の専門 AI エージェントから用途に応じたエージェントを選択できます。</p>
+        
+        <h3>エージェントを選択する</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">エージェント選択エリアを確認</span>
+            <div class="step-content">
+                <p>画面下部の入力欄の上に、現在選択中のエージェントが表示されています。</p>
+            </div>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">全エージェント表示ボタンをクリック</span>
+            <div class="step-content">
+                <p>「...」ボタンをクリックすると、利用可能なすべてのエージェントが表示されるモーダルが開きます。</p>
+            </div>
+        </div>
+        
+        <img src="images/08-agent-selection.png" alt="エージェント選択モーダル" class="screenshot">
+        
+        <div class="step">
+            <span class="step-number">3</span>
+            <span class="step-title">エージェントを検索・選択</span>
+            <div class="step-content">
+                <p>検索ボックスでエージェントを検索するか、一覧から使用したいエージェントをクリックして選択します。</p>
+            </div>
+        </div>
+        
+        <h3>主要なエージェント</h3>
+        
+        <table>
+            <tr>
+                <th>エージェント名</th>
+                <th>用途</th>
+            </tr>
+            <tr>
+                <td><strong>Multi-Agent Orchestrator</strong></td>
+                <td>複数のエージェントを統合して複雑なタスクを処理</td>
+            </tr>
+            <tr>
+                <td><strong>Comprehensive Research Report</strong></td>
+                <td>詳細なリサーチレポートの作成</td>
+            </tr>
+            <tr>
+                <td><strong>Project Execution</strong></td>
+                <td>プロジェクトの実行と管理</td>
+            </tr>
+            <tr>
+                <td><strong>Content Creation Pipeline</strong></td>
+                <td>コンテンツ作成ワークフロー</td>
+            </tr>
+            <tr>
+                <td><strong>Workflow Automation</strong></td>
+                <td>ワークフローの自動化</td>
+            </tr>
+        </table>
+        
+        <div class="tip">
+            <p class="tip-title">💡 ヒント：新しいエージェントの作成</p>
+            <p>エージェント選択モーダルの「Create New Agent」ボタンから、カスタムエージェントを作成することもできます。</p>
+        </div>
+    </section>
+
+    <!-- Section 5: Models -->
+    <section id="models">
+        <h2>5. AIモデルの選択</h2>
+        
+        <p>タスクの特性に応じて、異なる AI モデルを選択できます。</p>
+        
+        <h3>モデルを変更する</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">モデル選択ボタンをクリック</span>
+            <div class="step-content">
+                <p>入力欄の横にある現在のモデル名（例：「Claude Sonnet 4.5」）をクリックします。</p>
+            </div>
+        </div>
+        
+        <img src="images/09-model-selector.png" alt="モデル選択ドロップダウン" class="screenshot">
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">モデルを選択</span>
+            <div class="step-content">
+                <p>ドロップダウンから使用したいモデルを選択します。</p>
+            </div>
+        </div>
+        
+        <h3>利用可能なモデル</h3>
+        
+        <table>
+            <tr>
+                <th>モデル</th>
+                <th>提供元</th>
+                <th>特徴</th>
+            </tr>
+            <tr>
+                <td><strong>Claude Sonnet 4.5</strong></td>
+                <td>Anthropic</td>
+                <td>バランスの取れた高性能モデル</td>
+            </tr>
+            <tr>
+                <td><strong>Claude Opus 4.5</strong></td>
+                <td>Anthropic</td>
+                <td>最高性能、複雑なタスク向け</td>
+            </tr>
+            <tr>
+                <td><strong>Claude Haiku 4.5</strong></td>
+                <td>Anthropic</td>
+                <td>高速レスポンス、軽量タスク向け</td>
+            </tr>
+            <tr>
+                <td><strong>Nova Lite 2</strong></td>
+                <td>Amazon</td>
+                <td>コスト効率の良い軽量モデル</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Section 6: Search -->
+    <section id="search">
+        <h2>6. 検索機能</h2>
+        
+        <h3>チャット履歴の検索</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">Search Chats をクリック</span>
+            <div class="step-content">
+                <p>サイドバーの「Search Chats」をクリックします。</p>
+            </div>
+        </div>
+        
+        <img src="images/04-search-chats.png" alt="チャット検索" class="screenshot">
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">検索キーワードを入力</span>
+            <div class="step-content">
+                <p>検索ボックスにキーワードを入力すると、該当するチャットがフィルタリングされます。</p>
+            </div>
+        </div>
+        
+        <h3>エージェントの検索</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">Search Agents をクリック</span>
+            <div class="step-content">
+                <p>サイドバーの「Search Agents」をクリックします。</p>
+            </div>
+        </div>
+        
+        <img src="images/05-search-agents.png" alt="エージェント検索" class="screenshot">
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">検索を実行</span>
+            <div class="step-content">
+                <p>エージェント名や説明文で検索できます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Tools -->
+    <section id="tools">
+        <h2>7. ツール検索</h2>
+        
+        <p>AI エージェントが使用できるツール（外部機能）を検索・確認できます。</p>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">Search Tools をクリック</span>
+            <div class="step-content">
+                <p>サイドバーの「Search Tools」をクリックします。</p>
+            </div>
+        </div>
+        
+        <img src="images/06-search-tools.png" alt="ツール検索" class="screenshot">
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">ツールを検索</span>
+            <div class="step-content">
+                <p>自然言語でツールを検索できます（例：「echo text」）。</p>
+            </div>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">3</span>
+            <span class="step-title">詳細を確認</span>
+            <div class="step-content">
+                <p>各ツールの「Show Details」ボタンをクリックすると、ツールの詳細な説明とパラメータを確認できます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Events -->
+    <section id="events">
+        <h2>8. イベント連携</h2>
+        
+        <p>Event Integration 機能を使用すると、外部システムとの連携やイベントベースの処理を設定できます。</p>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">Event Integration をクリック</span>
+            <div class="step-content">
+                <p>サイドバーの「Event Integration」をクリックします。</p>
+            </div>
+        </div>
+        
+        <img src="images/07-event-integration.png" alt="イベント連携" class="screenshot">
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">イベント設定を確認・編集</span>
+            <div class="step-content">
+                <p>イベント連携の設定を確認・編集できます。「Back to Chat」ボタンでチャット画面に戻れます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: Settings -->
+    <section id="settings">
+        <h2>9. 設定</h2>
+        
+        <p>アプリケーションの各種設定を変更できます。</p>
+        
+        <h3>設定画面を開く</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">ユーザーメニューから Settings を選択</span>
+            <div class="step-content">
+                <p>サイドバー下部のユーザー名をクリックし、「Settings」を選択します。</p>
+            </div>
+        </div>
+        
+        <img src="images/10-settings.png" alt="設定画面" class="screenshot">
+        
+        <h3>設定項目</h3>
+        
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>説明</th>
+            </tr>
+            <tr>
+                <td><strong>Language</strong></td>
+                <td>表示言語の選択（English / 日本語など）</td>
+            </tr>
+            <tr>
+                <td><strong>Working Directory</strong></td>
+                <td>作業ディレクトリの設定（Edit ボタンで編集）</td>
+            </tr>
+            <tr>
+                <td><strong>Stream Response</strong></td>
+                <td>AI の応答をリアルタイムで表示するかどうか</td>
+            </tr>
+            <tr>
+                <td><strong>Enter Key Behavior</strong></td>
+                <td>Enter キーの動作（送信 / 改行）</td>
+            </tr>
+        </table>
+        
+        <div class="tip">
+            <p class="tip-title">💡 ヒント：Enter キーの動作</p>
+            <p>「Send message」を選択すると Enter キーでメッセージを送信します。「New line」を選択すると Enter キーで改行し、⌘+Enter（Mac）または Ctrl+Enter（Windows）で送信します。</p>
+        </div>
+    </section>
+
+    <!-- Section 10: FAQ -->
+    <section id="faq">
+        <h2>10. よくある質問</h2>
+        
+        <h3>Q: ログインできない場合は？</h3>
+        <div class="step">
+            <div class="step-content">
+                <p>以下を確認してください：</p>
+                <ul>
+                    <li>ユーザー名とパスワードが正しいか</li>
+                    <li>Caps Lock がオフになっているか</li>
+                    <li>パスワードの大文字・小文字が正確か</li>
+                </ul>
+                <p>問題が解決しない場合は、管理者にお問い合わせください。</p>
+            </div>
+        </div>
+        
+        <h3>Q: チャット履歴を削除するには？</h3>
+        <div class="step">
+            <div class="step-content">
+                <p>サイドバーのチャット一覧から、削除したいチャットにマウスを合わせると表示される削除ボタンをクリックしてください。</p>
+            </div>
+        </div>
+        
+        <h3>Q: 応答が遅い場合は？</h3>
+        <div class="step">
+            <div class="step-content">
+                <ul>
+                    <li>より軽量なモデル（Claude Haiku や Nova Lite）を選択してみてください</li>
+                    <li>ネットワーク接続を確認してください</li>
+                    <li>ブラウザを再読み込みしてみてください</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h3>Q: 対応している画像形式は？</h3>
+        <div class="step">
+            <div class="step-content">
+                <p>PNG、JPEG、GIF、WebP 形式の画像に対応しています。</p>
+            </div>
+        </div>
+        
+        <h3>Q: セッションが切れた場合は？</h3>
+        <div class="step">
+            <div class="step-content">
+                <p>長時間操作がない場合、セキュリティのためセッションが切れることがあります。再度ログインしてください。過去のチャット履歴は保持されています。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Donuts Chat User Manual</p>
+        <p>Powered by Amazon Bedrock AgentCore</p>
+        <p>© 2025 All rights reserved.</p>
+    </footer>
+</body>
+</html>
