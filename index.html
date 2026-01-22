@@ -522,7 +522,267 @@
         
         <div class="tip">
             <p class="tip-title">💡 ヒント：新しいエージェントの作成</p>
-            <p>エージェント選択モーダルの「Create New Agent」ボタンから、カスタムエージェントを作成することもできます。</p>
+            <p>エージェント選択モーダルの「Create New Agent」ボタンから、カスタムエージェントを作成することもできます。詳しくは次のセクションをご覧ください。</p>
+        </div>
+        
+        <h3>新しいエージェントを作成する</h3>
+        
+        <p>Donuts Chat では、独自の AI エージェントを作成して、特定のタスクに最適化したアシスタントを構築できます。</p>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">Create New Agent をクリック</span>
+            <div class="step-content">
+                <p>エージェント選択モーダルの「Create New Agent」ボタンをクリックして、エージェント作成フォームを開きます。</p>
+            </div>
+        </div>
+        
+        <img src="images/17-agent-list-modal.png" alt="エージェント選択モーダル" class="screenshot">
+        
+        <h4>Basic Settings（基本設定）</h4>
+        
+        <img src="images/18-agent-create-basic.png" alt="エージェント作成 - 基本設定" class="screenshot">
+        
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>必須</th>
+                <th>説明</th>
+            </tr>
+            <tr>
+                <td><strong>Name & Icon</strong></td>
+                <td>✓</td>
+                <td>エージェントの名前とアイコン。アイコンをクリックして絵文字を選択できます</td>
+            </tr>
+            <tr>
+                <td><strong>Description</strong></td>
+                <td></td>
+                <td>エージェントの説明文。何ができるかを簡潔に記載します</td>
+            </tr>
+            <tr>
+                <td><strong>System Prompt</strong></td>
+                <td>✓</td>
+                <td>AIの振る舞いを定義する指示文（詳細は後述）</td>
+            </tr>
+            <tr>
+                <td><strong>Scenarios</strong></td>
+                <td></td>
+                <td>ユーザーがワンクリックで実行できる定型タスク</td>
+            </tr>
+        </table>
+        
+        <div class="tip">
+            <p class="tip-title">💡 ヒント：Auto-generate with AI</p>
+            <p>名前と説明を入力すると「Auto-generate with AI」ボタンが有効になり、AIが自動的にシステムプロンプトを生成してくれます。</p>
+        </div>
+        
+        <h4>システムプロンプトの書き方</h4>
+        
+        <p>システムプロンプトは、AIエージェントの性格、能力、制約を定義する最も重要な要素です。効果的なシステムプロンプトを書くためのポイントを紹介します。</p>
+        
+        <div class="step">
+            <div class="step-content">
+                <h4>1. 役割と専門性を明確に定義する</h4>
+                <p>エージェントが「誰」であり、「何の専門家」かを明確にします。</p>
+                <pre style="background-color: #f5f5f5; padding: 16px; border-radius: 8px; overflow-x: auto;"><code>あなたは AWS のソリューションアーキテクトです。
+クラウドアーキテクチャの設計、コスト最適化、
+セキュリティベストプラクティスについてアドバイスを提供します。</code></pre>
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-content">
+                <h4>2. 具体的な行動指針を記載する</h4>
+                <p>エージェントがどのように行動すべきかを具体的に指示します。</p>
+                <pre style="background-color: #f5f5f5; padding: 16px; border-radius: 8px; overflow-x: auto;"><code>## 行動指針
+- ユーザーの質問には必ず根拠を示して回答する
+- 不明な点がある場合は、推測せずに確認の質問をする
+- 複雑な問題は、段階的に分解して説明する
+- コードサンプルを提示する際は、コメントを付ける</code></pre>
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-content">
+                <h4>3. 出力フォーマットを指定する</h4>
+                <p>回答の形式や構造を指定することで、一貫性のある出力を得られます。</p>
+                <pre style="background-color: #f5f5f5; padding: 16px; border-radius: 8px; overflow-x: auto;"><code>## 出力フォーマット
+回答は以下の構造で提供してください：
+1. 概要（3行以内）
+2. 詳細説明
+3. 具体例やサンプルコード
+4. 注意点やベストプラクティス</code></pre>
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-content">
+                <h4>4. 制約や禁止事項を明記する</h4>
+                <p>やってはいけないことを明確にすることで、安全性と品質を確保します。</p>
+                <pre style="background-color: #f5f5f5; padding: 16px; border-radius: 8px; overflow-x: auto;"><code>## 制約事項
+- 機密情報や個人情報を推測して回答しない
+- 確証のない情報を事実として伝えない
+- ユーザーが明示的に許可していない操作を実行しない</code></pre>
+            </div>
+        </div>
+        
+        <div class="warning">
+            <p class="tip-title">⚠️ システムプロンプト作成のベストプラクティス</p>
+            <ul>
+                <li><strong>簡潔さと具体性のバランス</strong>: 長すぎると処理が遅くなり、短すぎると曖昧になります</li>
+                <li><strong>Markdown形式を活用</strong>: 見出し（##）や箇条書き（-）で構造化すると読みやすくなります</li>
+                <li><strong>テストと改善</strong>: 作成後は様々なパターンでテストし、必要に応じて調整します</li>
+                <li><strong>言語の統一</strong>: プロンプトを英語で書くと、より安定した動作が期待できます</li>
+            </ul>
+        </div>
+        
+        <h4>シナリオの追加</h4>
+        
+        <p>「Add Scenario」ボタンをクリックすると、ユーザーがワンクリックで実行できる定型タスクを追加できます。</p>
+        
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>説明</th>
+            </tr>
+            <tr>
+                <td><strong>タイトル</strong></td>
+                <td>シナリオの名前（ボタンに表示されます）</td>
+            </tr>
+            <tr>
+                <td><strong>プロンプト</strong></td>
+                <td>クリック時に自動送信されるメッセージ</td>
+            </tr>
+        </table>
+        
+        <div class="tip">
+            <p class="tip-title">💡 ヒント：シナリオの活用例</p>
+            <ul>
+                <li>「日次レポートを作成」</li>
+                <li>「コードレビューを開始」</li>
+                <li>「週次サマリーを生成」</li>
+                <li>「新しいプロジェクトをセットアップ」</li>
+            </ul>
+        </div>
+        
+        <h4>Tools（ツール設定）</h4>
+        
+        <p>「Tools」タブでは、エージェントが使用できるツール（外部機能）を選択します。</p>
+        
+        <img src="images/19-agent-create-tools.png" alt="エージェント作成 - ツール選択" class="screenshot">
+        
+        <p>利用可能なツールは検索ボックスで絞り込めます。必要なツールにチェックを入れて選択してください。</p>
+        
+        <div class="tip">
+            <p class="tip-title">💡 ヒント：ツール選択のコツ</p>
+            <ul>
+                <li><strong>必要最小限のツールを選択</strong>: 多すぎるツールはAIの判断を複雑にします</li>
+                <li><strong>タスクに関連するツールのみ</strong>: エージェントの目的に直接関係するツールを選びましょう</li>
+                <li><strong>ツールの説明を確認</strong>: 各ツールの機能を理解してから選択してください</li>
+            </ul>
+        </div>
+        
+        <h5>主要なツールカテゴリ</h5>
+        
+        <table>
+            <tr>
+                <th>カテゴリ</th>
+                <th>ツール例</th>
+                <th>用途</th>
+            </tr>
+            <tr>
+                <td><strong>Web検索</strong></td>
+                <td>tavily_search, tavily_extract</td>
+                <td>最新情報の取得、Webページの解析</td>
+            </tr>
+            <tr>
+                <td><strong>ファイル操作</strong></td>
+                <td>file_editor, s3_list_files</td>
+                <td>ファイルの作成・編集、S3操作</td>
+            </tr>
+            <tr>
+                <td><strong>コード実行</strong></td>
+                <td>execute_command, code_interpreter</td>
+                <td>シェルコマンド実行、Python実行</td>
+            </tr>
+            <tr>
+                <td><strong>AWS操作</strong></td>
+                <td>aws_cli</td>
+                <td>AWSリソースの操作・調査</td>
+            </tr>
+            <tr>
+                <td><strong>エージェント連携</strong></td>
+                <td>call_agent, create_agent</td>
+                <td>他のエージェントの呼び出し・作成</td>
+            </tr>
+        </table>
+        
+        <div class="warning">
+            <p class="tip-title">⚠️ ツール利用の注意点</p>
+            <ul>
+                <li><strong>execute_command</strong>: シェルコマンドを実行できるため、慎重に使用してください</li>
+                <li><strong>file_editor</strong>: ファイルを作成・変更できるため、作業ディレクトリを適切に設定してください</li>
+                <li><strong>aws_cli</strong>: AWS リソースを操作できるため、IAM権限を確認してください</li>
+            </ul>
+        </div>
+        
+        <h4>MCP（Model Context Protocol）設定</h4>
+        
+        <p>「MCP」タブでは、外部のMCPサーバーと連携するための設定を行います。MCPは、AIモデルに追加のコンテキストやツールを提供するためのプロトコルです。</p>
+        
+        <img src="images/20-agent-create-mcp.png" alt="エージェント作成 - MCP設定" class="screenshot">
+        
+        <p>「Insert Sample」ボタンをクリックすると、事前定義されたMCPサーバー設定のサンプルを挿入できます。</p>
+        
+        <img src="images/21-agent-create-mcp-sample.png" alt="MCP サンプル選択" class="screenshot">
+        
+        <table>
+            <tr>
+                <th>サンプル</th>
+                <th>説明</th>
+            </tr>
+            <tr>
+                <td><strong>Filesystem Server</strong></td>
+                <td>ローカルファイルシステムへのアクセスを提供</td>
+            </tr>
+            <tr>
+                <td><strong>GitHub Server</strong></td>
+                <td>GitHubリポジトリの操作機能を提供</td>
+            </tr>
+            <tr>
+                <td><strong>AWS Documentation Server</strong></td>
+                <td>AWSドキュメントの検索・参照機能を提供</td>
+            </tr>
+            <tr>
+                <td><strong>Multiple Servers</strong></td>
+                <td>複数のMCPサーバーを同時に設定する例</td>
+            </tr>
+        </table>
+        
+        <div class="tip">
+            <p class="tip-title">💡 ヒント：MCP活用のポイント</p>
+            <ul>
+                <li><strong>Preview Tools</strong>: 設定後に「Preview Tools」ボタンで、実際に利用可能になるツールを確認できます</li>
+                <li><strong>JSON形式</strong>: MCP設定はJSON形式で記述します</li>
+                <li><strong>サンプルを活用</strong>: まずはサンプルを挿入して、必要に応じてカスタマイズしましょう</li>
+            </ul>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">エージェントを保存</span>
+            <div class="step-content">
+                <p>すべての設定が完了したら、「Save」ボタンをクリックしてエージェントを保存します。保存したエージェントはすぐに利用可能になります。</p>
+            </div>
+        </div>
+        
+        <div class="warning">
+            <p class="tip-title">⚠️ エージェント作成時の注意</p>
+            <ul>
+                <li>システムプロンプトは必須項目です</li>
+                <li>ツールを選択しない場合、エージェントは会話のみ可能になります</li>
+                <li>作成したエージェントは後から編集・削除できます</li>
+            </ul>
         </div>
     </section>
 

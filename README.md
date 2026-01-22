@@ -33,7 +33,12 @@ GitHub Pages が有効になっている場合、以下のURLでマニュアル�
 │   ├── 13-event-trigger-types.png
 │   ├── 14-event-schedule-config.png
 │   ├── 15-event-driven-config.png
-│   └── 16-event-execution-history.png
+│   ├── 16-event-execution-history.png
+│   ├── 17-agent-list-modal.png
+│   ├── 18-agent-create-basic.png
+│   ├── 19-agent-create-tools.png
+│   ├── 20-agent-create-mcp.png
+│   └── 21-agent-create-mcp-sample.png
 └── README.md           # このファイル
 ```
 
@@ -42,7 +47,10 @@ GitHub Pages が有効になっている場合、以下のURLでマニュアル�
 1. **はじめに** - Donuts Chat の概要と主な機能
 2. **ログイン・ログアウト** - アカウントの使い方
 3. **チャット機能の使い方** - 基本的なチャット操作
-4. **AIエージェントの選択** - エージェントの選び方
+4. **AIエージェントの選択・作成** - エージェントの選び方、カスタムエージェントの作成方法
+   - システムプロンプトの書き方（Tips含む）
+   - ツール選択のコツ
+   - MCP（Model Context Protocol）設定
 5. **AIモデルの選択** - モデルの違いと選択方法
 6. **検索機能** - チャット履歴・エージェントの検索
 7. **ツール検索** - AIツールの検索と確認
@@ -63,6 +71,10 @@ GitHub Pages が有効になっている場合、以下のURLでマニュアル�
 
 ## 📝 更新履歴
 
+- 2025-01-22: エージェント作成機能のドキュメントを追加
+  - システムプロンプトの書き方ガイド（Tips含む）
+  - ツール選択のベストプラクティス
+  - MCP設定の説明
 - 2025-01-22: イベント連携機能のドキュメントを大幅に拡充
   - スケジュール実行設定の説明を追加
   - イベント駆動型トリガーの説明を追加
