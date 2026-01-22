@@ -28,7 +28,12 @@ GitHub Pages が有効になっている場合、以下のURLでマニュアル�
 │   ├── 08-agent-selection.png
 │   ├── 09-model-selector.png
 │   ├── 10-settings.png
-│   └── 11-user-menu.png
+│   ├── 11-user-menu.png
+│   ├── 12-event-create-basic.png
+│   ├── 13-event-trigger-types.png
+│   ├── 14-event-schedule-config.png
+│   ├── 15-event-driven-config.png
+│   └── 16-event-execution-history.png
 └── README.md           # このファイル
 ```
 
@@ -41,7 +46,7 @@ GitHub Pages が有効になっている場合、以下のURLでマニュアル�
 5. **AIモデルの選択** - モデルの違いと選択方法
 6. **検索機能** - チャット履歴・エージェントの検索
 7. **ツール検索** - AIツールの検索と確認
-8. **イベント連携** - 外部システムとの連携
+8. **イベント連携** - スケジュール実行・外部イベント連携（EventBridge統合）
 9. **設定** - アプリケーションの設定
 10. **よくある質問** - FAQ
 
@@ -58,6 +63,10 @@ GitHub Pages が有効になっている場合、以下のURLでマニュアル�
 
 ## 📝 更新履歴
 
+- 2025-01-22: イベント連携機能のドキュメントを大幅に拡充
+  - スケジュール実行設定の説明を追加
+  - イベント駆動型トリガーの説明を追加
+  - 実行履歴機能の説明を追加
 - 2025-01-14: 初版作成
 
 ## 📄 ライセンス

@@ -665,7 +665,9 @@
     <section id="events">
         <h2>8. イベント連携</h2>
         
-        <p>Event Integration 機能を使用すると、外部システムとの連携やイベントベースの処理を設定できます。</p>
+        <p>Event Integration 機能を使用すると、スケジュールや外部イベント（S3へのファイルアップロード、CloudWatch アラームなど）をトリガーとして、AIエージェントを自動実行できます。定期的なレポート生成、データ収集、障害検知時の自動調査など、様々な自動化シナリオを実現できます。</p>
+        
+        <h3>イベント連携ページを開く</h3>
         
         <div class="step">
             <span class="step-number">1</span>
@@ -675,14 +677,193 @@
             </div>
         </div>
         
-        <img src="images/07-event-integration.png" alt="イベント連携" class="screenshot">
+        <img src="images/07-event-integration.png" alt="イベント連携一覧画面" class="screenshot">
+        
+        <p>イベント連携の一覧画面では、以下の情報を確認できます：</p>
+        
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>説明</th>
+            </tr>
+            <tr>
+                <td><strong>トリガー名</strong></td>
+                <td>設定したトリガーの名前と説明</td>
+            </tr>
+            <tr>
+                <td><strong>有効/無効スイッチ</strong></td>
+                <td>トリガーの有効・無効を切り替え</td>
+            </tr>
+            <tr>
+                <td><strong>イベントソース</strong></td>
+                <td>スケジュールまたは外部イベントの種類</td>
+            </tr>
+            <tr>
+                <td><strong>実行エージェント</strong></td>
+                <td>トリガー発火時に実行されるAIエージェント</td>
+            </tr>
+            <tr>
+                <td><strong>最終実行日時</strong></td>
+                <td>最後にトリガーが実行された日時</td>
+            </tr>
+        </table>
+        
+        <h3>新しいトリガーを作成する</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">Create New ボタンをクリック</span>
+            <div class="step-content">
+                <p>画面右上の「Create New」ボタンをクリックして、新規トリガー作成モーダルを開きます。</p>
+            </div>
+        </div>
+        
+        <h4>基本設定（Basic Settings）</h4>
+        
+        <img src="images/12-event-create-basic.png" alt="トリガー作成 - 基本設定" class="screenshot">
         
         <div class="step">
             <span class="step-number">2</span>
-            <span class="step-title">イベント設定を確認・編集</span>
+            <span class="step-title">基本情報を入力</span>
             <div class="step-content">
-                <p>イベント連携の設定を確認・編集できます。「Back to Chat」ボタンでチャット画面に戻れます。</p>
+                <p>以下の情報を設定します：</p>
+                <ul>
+                    <li><strong>Trigger Name（必須）</strong>: トリガーの名前（例：「Daily Report Generation」）</li>
+                    <li><strong>Agent to Execute（必須）</strong>: 実行するAIエージェントを選択</li>
+                    <li><strong>Description</strong>: トリガーの目的や説明</li>
+                    <li><strong>Model ID（オプション）</strong>: 使用するAIモデル（未指定の場合はエージェントのデフォルトモデルを使用）</li>
+                    <li><strong>Working Directory（オプション）</strong>: エージェントの作業ディレクトリ</li>
+                    <li><strong>Prompt</strong>: エージェントに送信するメッセージ</li>
+                </ul>
             </div>
+        </div>
+        
+        <h4>トリガー設定（Trigger Configuration）</h4>
+        
+        <div class="step">
+            <span class="step-number">3</span>
+            <span class="step-title">トリガータイプを選択</span>
+            <div class="step-content">
+                <p>「Trigger Configuration」タブで、トリガーの種類を選択します。</p>
+            </div>
+        </div>
+        
+        <img src="images/13-event-trigger-types.png" alt="トリガータイプ選択" class="screenshot">
+        
+        <table>
+            <tr>
+                <th>トリガータイプ</th>
+                <th>説明</th>
+                <th>用途例</th>
+            </tr>
+            <tr>
+                <td><strong>🕐 Schedule</strong></td>
+                <td>指定したスケジュールで自動実行</td>
+                <td>日次レポート、週次バックアップ、定期的なデータ収集</td>
+            </tr>
+            <tr>
+                <td><strong>⚡ Event-Driven</strong></td>
+                <td>外部イベント発生時に実行</td>
+                <td>S3へのファイルアップロード、CloudWatchアラーム、エラーログ検出</td>
+            </tr>
+        </table>
+        
+        <h4>スケジュール設定</h4>
+        
+        <p>「Schedule」を選択した場合、実行タイミングを設定できます。</p>
+        
+        <img src="images/14-event-schedule-config.png" alt="スケジュール設定" class="screenshot">
+        
+        <p><strong>プリセットスケジュール：</strong></p>
+        <ul>
+            <li><strong>Every Minute</strong> - 毎分実行</li>
+            <li><strong>Every Hour</strong> - 毎時実行</li>
+            <li><strong>Every Day (00:00)</strong> - 毎日深夜0時に実行</li>
+            <li><strong>Every Weekday</strong> - 平日のみ実行</li>
+            <li><strong>Every Monday</strong> - 毎週月曜日に実行</li>
+            <li><strong>1st of Every Month</strong> - 毎月1日に実行</li>
+            <li><strong>Custom</strong> - Cron式でカスタム設定</li>
+        </ul>
+        
+        <div class="tip">
+            <p class="tip-title">💡 ヒント：タイムゾーン設定</p>
+            <p>スケジュールは選択したタイムゾーン（デフォルト: Asia/Tokyo）に基づいて実行されます。必要に応じてタイムゾーンを変更してください。</p>
+        </div>
+        
+        <h4>イベント駆動設定</h4>
+        
+        <p>「Event-Driven」を選択した場合、利用可能なイベントソースから選択します。</p>
+        
+        <img src="images/15-event-driven-config.png" alt="イベント駆動設定" class="screenshot">
+        
+        <p><strong>利用可能なイベントソース（例）：</strong></p>
+        <ul>
+            <li><strong>S3 File Upload</strong> - 指定パターンに一致するファイルがS3にアップロードされた時</li>
+            <li><strong>CloudWatch Alarm</strong> - CloudWatchアラームの状態が変化した時</li>
+            <li><strong>Error Log Detection</strong> - アプリケーションのエラーログが検出された時</li>
+            <li><strong>GitHub Issue Created</strong> - GitHubで新しいIssueが作成された時</li>
+        </ul>
+        
+        <div class="tip">
+            <p class="tip-title">💡 ヒント：EventBridge Rule Details</p>
+            <p>各イベントソースの「EventBridge Rule Details」を展開すると、Amazon EventBridgeのルール詳細を確認できます。システム管理者が事前に設定したイベントルールから選択できます。</p>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">4</span>
+            <span class="step-title">保存</span>
+            <div class="step-content">
+                <p>設定が完了したら「Save」ボタンをクリックしてトリガーを保存します。</p>
+            </div>
+        </div>
+        
+        <h3>実行履歴を確認する</h3>
+        
+        <p>各トリガーの「Execution History」ボタンをクリックすると、過去の実行履歴を確認できます。</p>
+        
+        <img src="images/16-event-execution-history.png" alt="実行履歴" class="screenshot">
+        
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>説明</th>
+            </tr>
+            <tr>
+                <td><strong>Status</strong></td>
+                <td>実行状態（completed, failed など）</td>
+            </tr>
+            <tr>
+                <td><strong>Started At</strong></td>
+                <td>実行開始日時</td>
+            </tr>
+            <tr>
+                <td><strong>Completed At</strong></td>
+                <td>実行完了日時</td>
+            </tr>
+            <tr>
+                <td><strong>Duration</strong></td>
+                <td>実行にかかった時間</td>
+            </tr>
+            <tr>
+                <td><strong>Execution ID</strong></td>
+                <td>実行を一意に識別するID</td>
+            </tr>
+        </table>
+        
+        <h3>トリガーの管理</h3>
+        
+        <p>各トリガーカードには以下の操作ボタンがあります：</p>
+        
+        <ul>
+            <li><strong>トグルスイッチ</strong> - トリガーの有効/無効を切り替え</li>
+            <li><strong>Edit</strong> - トリガー設定を編集</li>
+            <li><strong>Execution History</strong> - 実行履歴を表示</li>
+            <li><strong>Delete</strong> - トリガーを削除</li>
+        </ul>
+        
+        <div class="warning">
+            <p class="tip-title">⚠️ 注意</p>
+            <p>トリガーを削除すると、関連する実行履歴も削除されます。削除前に必要な情報を確認してください。</p>
         </div>
     </section>
 
